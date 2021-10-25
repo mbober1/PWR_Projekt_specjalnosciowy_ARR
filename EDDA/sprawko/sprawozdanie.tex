@@ -15,7 +15,7 @@
 \usepackage{units}
 \usepackage{sty/style}
 
-\projekt{aaaaaaaa}
+\projekt{Modelowanie obiektu manipulatora 2R (EDDA)}
 \autor{Marcin Bober, 249426}
 \przedmiot{Projekt specjalnościowy ARR}
 \prowadzacy{Dr inż. Mirela Kaczmarek}
@@ -29,13 +29,47 @@
 
 \pagebreak
 
-\section{Oblicz macierze transformacji pomiędzy kolejnymi układami współrzędnych zgodnie z tabelą 1}
+\section{Badany obiekt}
 
-%   \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=0.86\textwidth]{img/img1.png}
-%     \caption{Macierze transformacji}
-%   \end{figure}
+\section{Algorytm Qui Dorsey'a}
+  \subsection{Opis} %(algorytmu i obiektu)
+  \subsection{Wyniki} %tabelka - zmiany nastaw a rząd błędu
+
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{ r | r | c | c }
+      P & D & $e_1$ & $e_2$  \\ 
+      \hline
+      10 & 1 & $10^{-1}$ & $10^{-1}$ \\  
+      100 & 10 & $10^{-1}$ & $10^{-2}$ \\  
+      1000 & 100 & $10^{-2}$ & $10^{-3}$ \\  
+      10000 & 1000 & $10^{-3}$ & $10^{-4}$ \\  
+      100000 & 10000 & $10^{-1}$ & $10^{-1}$ \\  
+      1000000 & 100000 & $10^{-1}$ & $10^{-1}$ \\  
+      10000000 & 1000000 & $10^{-1}$ & $10^{-1}$  
+    \end{tabular}
+    \caption{Table to test captions and labels.}
+    \label{table:1}
+  \end{table}
+
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/qui10.jpg}
+    \caption{KP = 10, KD = 1}
+  \end{figure}
+
+
+
+  \subsection{Wnioski}
+
+\section{Algorytm dokładnej linearyzacji}
+  \subsection{Opis} %(algorytmu i obiektu)
+  \subsection{Wyniki} %tabelka - zmiany nastaw a rząd błędu
+  \subsection{Wnioski}
+
+\section{Podsumowanie}
+
+
 
 %   \begin{figure}[H]
 %     \centering
@@ -55,81 +89,6 @@
 %     \centering
 %     \includegraphics[width=1\textwidth]{img/img4.png}
 %     \caption{Kinematyka manipulatora}
-%   \end{figure}
-
-  \section{Zastanów się, które elementy są znaczące przy wyznaczaniu parametrów geometrycznych manipulatora i zdefiniuj parametryczną postać
-  kinematyki potrzebną do wyznaczenia parametrów geometrycznych robota}
-  
-  Wyznaczanie parametrów geometrycznych manipulatora opiera się o 
-  wykorzystanie wektora translacji znajdującego się w ostatniej kolumnie
-  macierzy kinematyki. Informuje on o przsunięciu efektora względem 
-  początku układu współrzędnych. Oprócz wektora translacji niezbędny będzie
-  przykładowy zbiór współrzędnych przegubowych i współrzędnych efektora,
-  aby ich podstawie móc wyliczyć parametry geometryczne manipulatora.
-  
-  \section{Na podstawie wyznaczonej kinematyki i danych pomiarowych wyznacz
-  parametry geometryczne robota}
-  
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{img/img5.png}
-%     \caption{Parametry geometryczne}
-%   \end{figure}
-
-  \section{Przy jakich konfiguracjach jesteśmy w stanie odczytać bezpośrednio
-  długości ramion?}
-
-%   \begin{itemize}
-%     \item q1 = -90
-%     \item q2 = 0
-%     \item q3 = 0
-%     \item q4 = 90
-%     \item q5 = 90
-%     \item q6 = 0
-%   \end{itemize}
-
-%   X = d5 = 80mm
-
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{img/sym1.png}
-%     \caption{Odczytywanie d5}
-%   \end{figure}
-
-
-%   \begin{itemize}
-%     \item q1 = -90
-%     \item q2 = 90
-%     \item q3 = 90
-%     \item q4 = 90
-%     \item q5 = 90
-%     \item q6 = 0
-%   \end{itemize}
-
-%   Z = d4 = 320mm
-
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/sym2.png}
-%     \caption{Odczytywanie d4}
-%   \end{figure}
-
-
-%   \begin{itemize}
-%     \item q1 = -90
-%     \item q2 = 90
-%     \item q3 = 90
-%     \item q4 = 90
-%     \item q5 = 90
-%     \item q6 = 0
-%   \end{itemize}
-
-%   Z = d2 + d4 + d5 = 300mm + 320mm + 80mm
-
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/sym3.png}
-%     \caption{Odczytywanie d2}
 %   \end{figure}
 
 \end{document}

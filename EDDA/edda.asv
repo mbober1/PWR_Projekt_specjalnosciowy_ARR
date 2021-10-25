@@ -4,8 +4,10 @@ O3 = 0.24;
 O4 = 0.77;
 G = 9.81;
 
+U1 = 0;
+U2 = 0;
 
-Kp = 10000;
+Kp = 1000;
 Kd = Kp/10;
 
 K0 = 1;
@@ -22,12 +24,10 @@ e21 = a.get('e21');
 
 subplot(2,1,1);
 plot(time, e1);
-title('e_1(t)');
-xlabel('t[s]');
-ylabel('e_1[rad]');
+title('e_1(t)')
+xlabel(ax1,'sin(5x)')
+ylabel(ax1,'sin(5x)')
 
 subplot(2,1,2);
 plot(time, e2);
 title('e_2(t)')
-xlabel('t[s]');
-ylabel('e_2[rad]');
