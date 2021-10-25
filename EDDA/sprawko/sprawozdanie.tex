@@ -1,0 +1,135 @@
+\documentclass[12pt,a4paper]{article}
+\topmargin -1.6cm
+\addtolength{\textheight}{4cm}
+\textwidth  15.5cm
+
+\leftmargin      5mm
+\rightmargin     5mm
+\oddsidemargin   5mm
+\evensidemargin  5mm
+
+\usepackage{hyperref}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{units}
+\usepackage{sty/style}
+
+\projekt{aaaaaaaa}
+\autor{Marcin Bober, 249426}
+\przedmiot{Projekt specjalnościowy ARR}
+\prowadzacy{Dr inż. Mirela Kaczmarek}
+
+\begin{document}
+\pdfpageheight   297mm
+\pdfpagewidth    210mm
+
+\StronaTytulowa
+\SpisTresci
+
+\pagebreak
+
+\section{Oblicz macierze transformacji pomiędzy kolejnymi układami współrzędnych zgodnie z tabelą 1}
+
+%   \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=0.86\textwidth]{img/img1.png}
+%     \caption{Macierze transformacji}
+%   \end{figure}
+
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{img/img3.png}
+%     \caption{Macierze transformacji}
+%   \end{figure}
+
+%   \section{Wyznacz kinematykę manipulatora w SE(3)}
+  
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{img/img2.png}
+%     \caption{Kinematyka manipulatora}
+%   \end{figure}
+
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{img/img4.png}
+%     \caption{Kinematyka manipulatora}
+%   \end{figure}
+
+  \section{Zastanów się, które elementy są znaczące przy wyznaczaniu parametrów geometrycznych manipulatora i zdefiniuj parametryczną postać
+  kinematyki potrzebną do wyznaczenia parametrów geometrycznych robota}
+  
+  Wyznaczanie parametrów geometrycznych manipulatora opiera się o 
+  wykorzystanie wektora translacji znajdującego się w ostatniej kolumnie
+  macierzy kinematyki. Informuje on o przsunięciu efektora względem 
+  początku układu współrzędnych. Oprócz wektora translacji niezbędny będzie
+  przykładowy zbiór współrzędnych przegubowych i współrzędnych efektora,
+  aby ich podstawie móc wyliczyć parametry geometryczne manipulatora.
+  
+  \section{Na podstawie wyznaczonej kinematyki i danych pomiarowych wyznacz
+  parametry geometryczne robota}
+  
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{img/img5.png}
+%     \caption{Parametry geometryczne}
+%   \end{figure}
+
+  \section{Przy jakich konfiguracjach jesteśmy w stanie odczytać bezpośrednio
+  długości ramion?}
+
+%   \begin{itemize}
+%     \item q1 = -90
+%     \item q2 = 0
+%     \item q3 = 0
+%     \item q4 = 90
+%     \item q5 = 90
+%     \item q6 = 0
+%   \end{itemize}
+
+%   X = d5 = 80mm
+
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{img/sym1.png}
+%     \caption{Odczytywanie d5}
+%   \end{figure}
+
+
+%   \begin{itemize}
+%     \item q1 = -90
+%     \item q2 = 90
+%     \item q3 = 90
+%     \item q4 = 90
+%     \item q5 = 90
+%     \item q6 = 0
+%   \end{itemize}
+
+%   Z = d4 = 320mm
+
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{img/sym2.png}
+%     \caption{Odczytywanie d4}
+%   \end{figure}
+
+
+%   \begin{itemize}
+%     \item q1 = -90
+%     \item q2 = 90
+%     \item q3 = 90
+%     \item q4 = 90
+%     \item q5 = 90
+%     \item q6 = 0
+%   \end{itemize}
+
+%   Z = d2 + d4 + d5 = 300mm + 320mm + 80mm
+
+%   \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{img/sym3.png}
+%     \caption{Odczytywanie d2}
+%   \end{figure}
+
+\end{document}
