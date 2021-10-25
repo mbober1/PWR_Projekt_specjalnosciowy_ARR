@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{units}
 \usepackage{sty/style}
+\usepackage{float}
 
 \projekt{Modelowanie obiektu manipulatora 2R (EDDA)}
 \autor{Marcin Bober, 249426}
@@ -29,11 +30,15 @@
 
 \pagebreak
 
-\section{Badany obiekt}
+\section{Cel ćwiczenia}
+  Celem ćwiczenia jest zbadanie zachowania dwóch algorytmów sterowania sprzężonych z manipulatorem 2R. Mają one zrealizować zadanie śledzenia zadanej trajektorii.
 
 \section{Algorytm Qui Dorsey'a}
   \subsection{Opis} %(algorytmu i obiektu)
+    Algorytm Qui Dorsey'a jest algorytmem globalnym. Jego zasada działania jest tożsama z działaniem liniowego regulatora PD. Z powodu liniowej natury algorytmu i nieliniowego charakteru obiektu, sterowanie obiektem nie będzie proste. W celu zbadania właściwości nastaw regulatora na błąd śledzenia trajektorii (uchyb) został przeprowadzony szereg symulacji. Przetestowane nastawy wraz z rzędem błędu sterowania zostały podane w tabeli \ref{table:1}.
+
   \subsection{Wyniki} %tabelka - zmiany nastaw a rząd błędu
+    W tabeli \ref{table:1} znajduje się zestaw sześciu par nastaw dla KP i KD regulatora. W kolejnych kolumnach został umieszczony rząd błędu sterowania odpowiadający podany parametrom. 
 
   \begin{table}[h!]
     \centering
@@ -45,77 +50,79 @@
       1000 & 100 & $10^{-2}$ & $10^{-3}$ \\  
       10000 & 1000 & $10^{-3}$ & $10^{-4}$ \\  
       100000 & 10000 & $10^{-4}$ & $10^{-5}$ \\  
-      1000000 & 100000 & $10^{-1}$ & $10^{-1}$
+      1000000 & 100000 & $10^{-5}$ & $10^{-6}$ \\
+      10000000 & 1000000 & $10^{-6}$ & $10^{-7}$
     \end{tabular}
-    \caption{Table to test captions and labels.}
+    \caption{Nastawy PD i odpowiadający im rząd błędu}
     \label{table:1}
   \end{table}
 
-  \begin{figure}[ht]
+    Dziesięciokrotny wzrost wzmocnienia skutkuje dziesięciokrotnym spadkiem błędu. Błędy drugiego przegubu są niższe niż dla pierwszego. Dla nastaw dążących do nieskończoności, błąd śledzenia zmierza do zera.
+
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figures/qui10.jpg}
+    \includegraphics[height=0.4\textheight]{figures/qui10.jpg}
     \caption{KP = 10, KD = 1}
+    \label{fig:10}
   \end{figure}
 
-  \begin{figure}[ht]
+    Niewielkie nastawy sprawiają że obiekt ma znaczne problemy ze śledzeniem zadanej trajektorii. Błąd śledzenia dla  KP = 10 i KD = 1 w zależności do czasu został zaprezentowany na rysunku \ref{fig:10}.
+
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figures/qui100.jpg}
+    \includegraphics[height=0.4\textheight]{figures/qui100.jpg}
     \caption{KP = 100, KD = 10}
+    \label{fig:100}
   \end{figure}
 
-  \begin{figure}[ht]
+    Konsekwentne zwiększanie nastaw regulatora przynosi wymierne efekty w postaci malejącego błędu. Można je zaobserwować porównująć wykresy \ref{fig:1000} oraz \ref{fig:10000}.
+
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figures/qui1000.jpg}
+    \includegraphics[height=0.4\textheight]{figures/qui1000.jpg}
     \caption{KP = 1000, KD = 100}
+    \label{fig:1000}
   \end{figure}
 
-  \begin{figure}[ht]
+
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figures/qui10000.jpg}
+    \includegraphics[height=0.4\textheight]{figures/qui10000.jpg}
     \caption{KP = 10000, KD = 1000}
+    \label{fig:10000}
   \end{figure}
 
-  \begin{figure}[ht]
+    Pomimo malejącego błedu należy zaznaczyć że uzyskane przbiegi w każdej iteracji posiadają charakter niegasnących oscylacji. 
+
+  \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figures/qui100000.jpg}
+    \includegraphics[height=0.38\textheight]{figures/qui100000.jpg}
     \caption{KP = 100000, KD = 10000}
+    \label{fig:100000}
   \end{figure}
 
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[width=1\textwidth]{figures/qui1000000.jpg}
-  %   \caption{KP = 1000000, KD = 100000}
-  % \end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=0.38\textheight]{figures/qui1000000.jpg}
+    \caption{KP = 1000000, KD = 100000}
+    \label{fig:1000000}
+  \end{figure}
+
+    Stosowanie coraz to większych parametrów regulatora PD powoduje znaczący wzrost złożoności obliczeniowej.
 
   \subsection{Wnioski}
+    Symulacje wykazały że algorytm realizuje cel minimalizacji błędu śledzenia dokładnej w przypadku zastosowania większych nastaw. Jednakże osiągnięcie zerowego błędu nie jest możliwe ponieważ wymagałoby ono nieskończonej wartości nastaw. W każdym zbadanym przypadku przebiegi błędów mają charakter niegasnących oscylacji.
+
 
 \section{Algorytm dokładnej linearyzacji}
   \subsection{Opis} %(algorytmu i obiektu)
-  \subsection{Wyniki} %tabelka - zmiany nastaw a rząd błędu
+    Algorym dokładnej linearyzacji może być zastosowany jedynie dla obiektów z pełni znanych. Pierwszym etapem jest przeprowadzenie linearyzacji statycznej w celu otrzymania układu liniowego podówjego integratora.
+  \subsection{Zależność od nastaw}
+
+  \subsection{Zależność od wartości początkowej}
   \subsection{Wnioski}
 
 \section{Podsumowanie}
 
-
-
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/img3.png}
-%     \caption{Macierze transformacji}
-%   \end{figure}
-
-%   \section{Wyznacz kinematykę manipulatora w SE(3)}
-  
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/img2.png}
-%     \caption{Kinematyka manipulatora}
-%   \end{figure}
-
-%   \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=1\textwidth]{img/img4.png}
-%     \caption{Kinematyka manipulatora}
-%   \end{figure}
 
 \end{document}
