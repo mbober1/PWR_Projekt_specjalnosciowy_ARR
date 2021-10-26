@@ -38,7 +38,7 @@
     Algorytm Qui Dorsey'a jest algorytmem globalnym. Jego zasada działania jest tożsama z działaniem liniowego regulatora PD. Z powodu liniowej natury algorytmu i nieliniowego charakteru obiektu, sterowanie obiektem nie będzie proste. W celu zbadania właściwości nastaw regulatora na błąd śledzenia trajektorii (uchyb) został przeprowadzony szereg symulacji. Przetestowane nastawy wraz z rzędem błędu sterowania zostały podane w tabeli \ref{table:1}.
 
   \subsection{Wyniki} %tabelka - zmiany nastaw a rząd błędu
-    W tabeli \ref{table:1} znajduje się zestaw sześciu par nastaw dla KP i KD regulatora. W kolejnych kolumnach został umieszczony rząd błędu sterowania odpowiadający podany parametrom. 
+    W tabeli \ref{table:1} znajduje się zestaw siedmiu par nastaw dla KP i KD regulatora. W kolejnych kolumnach został umieszczony rząd błędu sterowania odpowiadający podany parametrom. 
 
   \begin{table}[h!]
     \centering
@@ -53,7 +53,7 @@
       1000000 & 100000 & $10^{-5}$ & $10^{-6}$ \\
       10000000 & 1000000 & $10^{-6}$ & $10^{-7}$
     \end{tabular}
-    \caption{Nastawy PD i odpowiadający im rząd błędu}
+    \caption{Nastawy PD i odpowiadający im rząd błędu.}
     \label{table:1}
   \end{table}
 
@@ -92,7 +92,7 @@
     \label{fig:10000}
   \end{figure}
 
-    Pomimo malejącego błedu należy zaznaczyć że uzyskane przbiegi w każdej iteracji posiadają charakter niegasnących oscylacji. Jest to dobrze widoczne na rysunku \ref{fig:10000000}, gdzie błąd rzędu $10^{-6}$ wciąż oscyluje.
+    Pomimo malejącego błedu należy zaznaczyć że uzyskane przebiegi w każdej iteracji posiadają charakter niegasnących oscylacji. Jest to dobrze widoczne na rysunku \ref{fig:10000000}, gdzie błąd rzędu $10^{-6}$ wciąż oscyluje.
 
   \begin{figure}[H]
     \centering
@@ -104,12 +104,12 @@
     Stosowanie coraz to większych parametrów regulatora PD powoduje znaczący wzrost złożoności obliczeniowej.
 
   \subsection{Wnioski}
-    Symulacje wykazały że algorytm realizuje cel minimalizacji błędu śledzenia dokładnej w przypadku zastosowania większych nastaw. Jednakże osiągnięcie zerowego błędu nie jest możliwe ponieważ wymagałoby ono nieskończonej wartości nastaw. W każdym zbadanym przypadku przebiegi błędów mają charakter niegasnących oscylacji.
+    Symulacje wykazały że algorytm realizuje cel minimalizacji błędu śledzenia dokładniej w przypadku zastosowania większych nastaw. Jednakże osiągnięcie zerowego błędu nie jest możliwe ponieważ wymagałoby ono nieskończonej wartości nastaw. W każdym zbadanym przypadku przebiegi błędów mają charakter niegasnących oscylacji.
 
 
 \section{Algorytm dokładnej linearyzacji}
   \subsection{Opis} %(algorytmu i obiektu)
-    Algorym dokładnej linearyzacji może być zastosowany jedynie dla obiektów z pełni znanych. Niezbędne jest przeprowadzenie linearyzacji statycznej w celu otrzymania układu liniowego podówjego integratora.
+    Algorym dokładnej linearyzacji może być zastosowany jedynie dla obiektów w pełni znanych. Niezbędne jest przeprowadzenie linearyzacji statycznej w celu otrzymania układu liniowego podówjego integratora.
   \subsection{Zależność od wzmocnienia K0}
     Symulacje przeprowadzono przy stałym wzmocnieniu K1 wynoszącym 1 oraz zmianie parametru K0.
 
@@ -228,6 +228,6 @@
 \section{Podsumowanie}
   Algorytm Qui Dorsey’a jest prostrzy w implementacji. Poza tym jest on algorytmem globalnym co sprawia że powinien działać on przy każdych wartościach początkowych. Do jego wad należy słaba jakość sterowania, ponieważ błąd śledzenia wiecznie oscyluje. Co więcej, jest on obarczony dużo większą złożonością obliczeniową. Zwiększanie nastaw w nieskończoność powoduje minimalizację błędu.
 
-  Algorytm dokładnej linearyzacji dużo lepiej radzi sobie z osiągnięciem zadanej trajektorii. Jest on dużo dokładniejszy pomimo faktu że jest znacznie mniej obciązający obliczeniowo. Zwiększanie wzmocnienia w nieskończoność nie powoduje minimalizacji błędu.
+  Algorytm dokładnej linearyzacji dużo lepiej radzi sobie z osiągnięciem zadanej trajektorii. Jest on dużo dokładniejszy pomimo faktu że jest znacznie mniej obciążający obliczeniowo. Zwiększanie wzmocnienia w nieskończoność nie powoduje minimalizacji błędu.
 
 \end{document}
