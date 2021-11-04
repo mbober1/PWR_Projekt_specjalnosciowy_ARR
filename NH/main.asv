@@ -13,18 +13,11 @@ Xd = a.get('Xd');
 Yd = a.get('Yd');
 X = a.get('X');
 Y = a.get('Y');
-Ex = a.get('Ex');
-Ey = a.get('Ey');
-Eo = a.get('Eo');
 
 
-figure(1);
-hold on;
-plot(time, Ex);
-plot(time, Ey);
-plot(time, Eo);
+figure
 
-figure(2);
+
 hold on;
 plot(Xd, Yd);
 plot(X, Y);
