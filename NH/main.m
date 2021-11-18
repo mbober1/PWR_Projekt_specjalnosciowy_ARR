@@ -6,6 +6,11 @@ K1 = 1;
 K2 = 1;
 
 
+KM = 10;
+M11 = 107.9;
+M22 = 83.6;
+
+
 a = sim("nh.slx");
 
 time = a.get('time');
