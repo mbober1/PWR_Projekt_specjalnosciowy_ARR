@@ -11,7 +11,8 @@ M11 = 107.9;
 M22 = 83.6;
 
 
-a = sim("nh.slx");
+%a = sim("nh.slx");
+a = sim("dynamiczny.slx");
 
 time = a.get('time');
 Xd = a.get('Xd');
