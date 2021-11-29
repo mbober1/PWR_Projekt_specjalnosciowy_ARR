@@ -74,7 +74,7 @@
       \label{fig:3}
     \end{figure}
 
-    Na wykresie \ref{fig:3} można zaobserwować odnotowane błędy śledzenia trajektorii. Liniami ciągłymi oznaczone są błędy dotyczące sterownika kinematycznego, natomiast liniami przerywanymi rysowane są wykresy dotyczące połączenia oby sterowników. Ciężko jest jednocześnie stwierdzić że połączenie obu sterowników daje wymiernie lepsze efekty. Zdecydowanie wprowadza ono pewne opóźnienie, ale w tym konkrentym przypadku da się zauważyć że wprowadza ono nieznacznie mniejsze przesterowania. 
+    Na wykresie \ref{fig:3} można zaobserwować odnotowane błędy śledzenia trajektorii. Liniami ciągłymi oznaczone są błędy dotyczące sterownika kinematycznego, natomiast liniami przerywanymi rysowane są wykresy dotyczące połączenia oby sterowników. Można zaobserwować że połączenie obu sterowników daje wymiernie lepsze efekty. Połączenie sterowników pozwala szybciej i intensywniej reagować na pojawiający się błąd. 
 
     \begin{figure}[H]
       \centering
@@ -83,7 +83,7 @@
       \label{fig:4}
     \end{figure}
 
-    Wykres \ref{fig:4} porównuje trajektorie referencyjną do trajektorii ze sterownikiem dynamicznym oraz bez sterownika dynamiczengo. Dodanie sterowanika dynamicznego spowodowało bardziej zdecydowaną reakcję obiektu w początkowej fazie ruchu porównując z drugim mniej skomplikowanym rozwiązaniem. Jednakże czas potrzebny na osiągniecie zadanej trajektorii jest bardzo porównywalny. 
+    Wykres \ref{fig:4} porównuje trajektorie referencyjną do trajektorii ze sterownikiem dynamicznym oraz bez sterownika dynamicznego. Dodanie sterowanika dynamicznego spowodowało bardziej zdecydowaną reakcję obiektu w początkowej fazie ruchu porównując z drugim mniej skomplikowanym rozwiązaniem. Jednakże czas potrzebny na osiągniecie zadanej trajektorii jest bardzo porównywalny. 
 
   \subsection{Zależność od współczynnika $K_1$}
   Wykres \ref{fig:5} przedstawia jak wpływa zmiana współczynnika $K_1$ na poszczególne błędy śledzenia, przy zachowaniu współczynników $K_2$ i $K_M$ równych 1. Na podstawie tych danych można wywnioskować że wzrost wzmocnienia $K_1$:
@@ -163,20 +163,44 @@
 
 
   \subsection{Zależność od warunków początkowych}
+  Zmiana warunków początkowych pozwala na zmianę miejsca startu algorytmu. Zmiana $x_0$ wpływa na pozycję na osi OX na trajektorii (patrz wykres \ref{fig:11}). W podobny sposób wpływa zmiana $y_0$ na pozycję na osi OY (patrz wykres \ref{fig:12}). Ostatni warunkiem początkowym jest $\theta_0$ wpływający na kąt ustawienia platformy. Warto zaznaczyć że nie wszystkie ustawienia kąta będą poprawne co można zaobserwować na wykresie \ref{fig:13}.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/wp_x.png}
+    \caption{Trajektorie zależne od $x_0$}
+    \label{fig:11}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/wp_y.png}
+    \caption{Trajektorie zależne od $y_0$}
+    \label{fig:12}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/wp_o.png}
+    \caption{Trajektorie zależne od $\theta_0$}
+    \label{fig:13}
+  \end{figure}
+
 
   \subsection{Wnioski}
+
+
   % dlaczego dla platformy musi być kinematyczny i dynamiczny i skąd to się wzięło
 
-  % \begin{itemize}
-  %   \item wzrost wzmocnienia K0 powoduje zwiększone przesterowanie i wydłużony czas tłumienia oscylacji dla obu przegubów,
-  %   \item wzrost wzmocnienia K1 powoduje spadek przesterowania i wydłużony czas tłumienia oscylacji dla przegubu pierwszego,
-  %   \item dla przegubu drugiego ustawienie wzmocnienienia $K1=2$ spowodowało osiągnięcie najlepszych rezultatów,
-  %   \item położenie i prędkość początkowa mają duże znaczenie na błąd w pierwszych sekundach sterowania. 
-  % \end{itemize}
+  \begin{itemize}
+    \item połączenie sterowników powoduje mniejsze opóźnienie i mocniejsze sterowanie,
+    \item zmiana współczynnika $K_1$ ma znaczny wpływ na minimalizację błędu $E_x$,
+    \item zmiana współczynnika $K_2$ ma znaczny wpływ na minimalizację błędu $E_\theta$,
+    \item zmiana współczynnika $K_M$ ma znaczny wpływ na minimalizację błędu $E_x$,
+  \end{itemize}
   
 \section{Podsumowanie}
-  % Algorytm Qui Dorsey’a jest prostrzy w implementacji. Poza tym jest on algorytmem globalnym co sprawia że powinien działać on przy każdych wartościach początkowych. Do jego wad należy słaba jakość sterowania, ponieważ błąd śledzenia wiecznie oscyluje. Co więcej, jest on obarczony dużo większą złożonością obliczeniową. Zwiększanie nastaw w nieskończoność powoduje minimalizację błędu.
 
-  % Algorytm dokładnej linearyzacji dużo lepiej radzi sobie z osiągnięciem zadanej trajektorii. Jest on dużo dokładniejszy pomimo faktu że jest znacznie mniej obciążający obliczeniowo. Zwiększanie wzmocnienia w nieskończoność nie powoduje minimalizacji błędu.
+  Sterowanie nieholonomicznym obiektem jakim jest platforma mobilna wymaga sterowania przy użyciu sterowanika kinematycznego i dynamicznego. Zadaniem pierwszego algorytmu jest produkcja profilu prędkościowego zależnego od zadania (trajektorii). Następnie informacja ta wykorzystywana jest przez sterownik dynamiczny, który potrafi uwzględnić masę i bezwładność sterowanego obiektu.
 
 \end{document}
