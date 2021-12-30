@@ -1,4 +1,5 @@
-
+close all;
+clear all;
 
 R = 1;
 wd = 0.5;
@@ -10,11 +11,17 @@ KM = 1;
 M11 = 107.9;
 M22 = 83.6;
 
-% kin = sim("nh.slx");
-% dym = sim("dynamiczny.slx");
+x0 = 0;
+y0 = 0;
+o0 = 0.01;
 
-% Xd = kin.get('Xd');
-% Yd = kin.get('Yd');
+% kin = sim("nh.slx");
+dym = sim("dynamiczny.slx");
+
+    hold on;
+Xd = dym.get('Xd');
+Yd = dym.get('Yd');
+plot(Xd, Yd, 'b.');
 % 
 % time_kin = kin.get('time');
 % X_kin = kin.get('X');
@@ -31,19 +38,24 @@ M22 = 83.6;
 % Eo_dym = dym.get('Eo');
 
 
-for KM = [1, 5, 10, 20]
+for o0 = [pi/6, pi/4, pi/2, pi, 2*pi]
     dym = sim("dynamiczny.slx");
+    %kin = sim("nh.slx");
 
     hold on;
     time_dym = dym.get('time');
-%     X_dym = dym.get('X');
-%     Y_dym = dym.get('Y');
-    Ex_dym = dym.get('Ex');
-%     Ey_dym = dym.get('Ey');
-%     Eo_dym = dym.get('Eo');
-    plot(time_dym, Ex_dym);
+    X_dym = dym.get('X');
+    Y_dym = dym.get('Y');
+%     X_kin = kin.get('X');
+%     Y_kin = kin.get('Y');
+%     Ex_dym = dym.get('Ex');
+     %Ey_dym = dym.get('Ey');
+     %Eo_dym = dym.get('Eo');
+%     plot(time_dym, Ex_dym);
 %     plot(time_dym, Ey_dym);
 %     plot(time_dym, Eo_dym);
+plot(X_dym, Y_dym, '--');
+%plot(X_kin, Y_kin, '-');
 end
 
 % figure(1);
@@ -55,11 +67,10 @@ end
 % plot(time_dym, Ey_dym, 'g--');
 % plot(time_dym, Eo_dym, 'b--');
 
-title('Błędy sterowania E_x');
-xlabel('t[s]');
-ylabel('e[rad]');
-legend("K_M=1","K_M=5","K_M=10","K_M=20");
-
+% title('Błędy sterowania E_x');
+% xlabel('t[s]');
+% ylabel('e[rad]');
+% legend("Q1_0=\pi/6","Q1_0=\pi/4", "Q1_0=\pi/2", "Q1_0=\pi", "Q1_0=2\pi");
 
 
 % figure(2);
@@ -68,7 +79,7 @@ legend("K_M=1","K_M=5","K_M=10","K_M=20");
 % plot(X_kin, Y_kin, 'r--');
 % plot(X_dym, Y_dym, 'g--');
 % 
-% title('Trajektoria');
-% xlabel('x');
-% ylabel('y');
-% legend("referencyjna","kinematyczny", "kinematyczny+dynamiczny");
+title('Trajektoria');
+xlabel('x');
+ylabel('y');
+legend("referencyjna","\theta_0=\pi/6","\theta_0=\pi/4", "\theta_0=\pi/2", "\theta_0=\pi", "\theta_0=2\pi");
